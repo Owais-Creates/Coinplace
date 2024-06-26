@@ -6,8 +6,6 @@ export const useCoin = () => {
     return useContext(CoinContext);
 }
 
-
-
 const CoinProvider = (props) => {
 
     const [allCoin, setAllCoin] = useState([]);

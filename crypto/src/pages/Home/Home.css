@@ -100,7 +100,7 @@
 
 .green {
     margin-left: 38px;
-    color: green;
+    color: #01ff01;
 }
 
 @media(max-width:768px) {
