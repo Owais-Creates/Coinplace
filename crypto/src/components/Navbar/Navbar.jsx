@@ -1,12 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './Navbar.css'
 import logo from "../../assets/logo.png"
+import ham from "../../assets/ham.webp"
 import { useCoin } from "../../context/CoinContext"
-import { Link } from 'react-router-dom'
+import { NavLink, Link } from 'react-router-dom'
+
 
 const Navbar = () => {
 
     const { setCurrency } = useCoin();
+    const [show, setShow] = useState(false);
 
     const currencyHandler = (event) => {
         switch (event.target.value) {
@@ -36,14 +39,25 @@ const Navbar = () => {
         <>
             <div className='navbar' >
 
+                <img onClick={() => setShow(prev => !prev)} className='ham' src={ham} alt="" />
+
+                {show
+                    &&
+                    <div className="mobile-menu">
+                        <Link to={"/"} ><li>Home</li></Link>
+                        <Link to={"/features"} ><li >Features</li></Link>
+                        <Link to={"/pricing"} ><li>Pricing</li></Link>
+                    </div>}
+
                 <Link to={"/"} >
-                    <img className='logo' src={logo} alt="" />
+                    <img className='logo' src={logo} alt="logo" />
                 </Link>
 
                 <ul>
-                    <Link to={"/"} ><li>Home</li></Link>
-                    <li>Features</li>
-                    <li>Pricing</li>
+                    <NavLink className="mouse-over" to={"/"} ><li>Home</li></NavLink>
+                    <NavLink className="mouse-over" to={"/features"} ><li >Features</li></NavLink>
+                    <NavLink className="mouse-over" to={"/pricing"} ><li>Pricing</li></NavLink>
+
                 </ul>
 
                 <div className="nav-right">

@@ -37,7 +37,7 @@ const CoinProvider = (props) => {
         allCoin,
         setAllCoin,
         currency,
-        setCurrency
+        setCurrency,
     }
 
     return (
