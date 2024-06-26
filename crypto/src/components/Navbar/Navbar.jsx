@@ -1,8 +1,13 @@
 import React from 'react'
 import './Navbar.css'
 import logo from "../../assets/logo.png"
+import {useCoin} from "../../context/CoinContext"
 
 const Navbar = () => {
+
+const coin = useCoin()
+console.log(coin);
+
     return (
         <>
             <div className='navbar' >

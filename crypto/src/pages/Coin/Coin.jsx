@@ -4,7 +4,7 @@ import './Coin.css'
 const Coin = () => {
   return (
     <>
-    
+    <h2>Coin</h2>
     </>
   )
 }
