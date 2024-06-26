@@ -2,6 +2,7 @@ import React from 'react'
 import './Navbar.css'
 import logo from "../../assets/logo.png"
 import { useCoin } from "../../context/CoinContext"
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
 
@@ -24,7 +25,7 @@ const Navbar = () => {
                 break;
             }
 
-            default:{
+            default: {
                 setCurrency({ name: "usd", Symbol: "$" });
                 break;
             }
@@ -34,10 +35,13 @@ const Navbar = () => {
     return (
         <>
             <div className='navbar' >
-                <img className='logo' src={logo} alt="" />
+
+                <Link to={"/"} >
+                    <img className='logo' src={logo} alt="" />
+                </Link>
 
                 <ul>
-                    <li>Home</li>
+                    <Link to={"/"} ><li>Home</li></Link>
                     <li>Features</li>
                     <li>Pricing</li>
                 </ul>

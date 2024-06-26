@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import './Home.css'
 import { useCoin } from '../../context/CoinContext'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
 
@@ -8,9 +9,28 @@ const Home = () => {
   const [displayCoin, setDisplayCoin] = useState([]);
   const [input, setInput] = useState("");
 
-  const handleInput = (event) => {
-    setInput(event.target.value);
+  const handleInput = (e) => {
+    setInput(e.target.value);
+    if (e.target.value === "") {
+      setDisplayCoin(allCoin)
+    }
   }
+
+  const searchHandler = async (e) => {
+    e.preventDefault();
+
+    try {
+      const coin = await allCoin.filter(item =>
+        item.name.toLowerCase().includes(input.toLowerCase())
+      );
+      setDisplayCoin(coin);
+
+
+    } catch (error) {
+      console.error("Error filtering coins:", error);
+    }
+  };
+
 
   useEffect(() => {
     setDisplayCoin(allCoin)
@@ -23,8 +43,14 @@ const Home = () => {
           <h1>Largest <br /> Crypto Marketplace</h1>
           <p>Welcome to the world's largest cyrptocurrency marketplace.</p>
 
-          <form>
-            <input onChange={(e) => handleInput(e)} type="text" placeholder='Search Crypto..' />
+          <form onSubmit={searchHandler} >
+            <input
+              onChange={(e) => handleInput(e)}
+              type="text" placeholder='Search Crypto..' list='coinlist' value={input} required />
+
+            <datalist id='coinlist' >
+              {allCoin.map((item, index) => <option key={index} value={item.name} />)}
+            </datalist>
             <button type='submit' >Search</button>
           </form>
 
@@ -41,7 +67,7 @@ const Home = () => {
 
           {
             displayCoin.slice(0, 10).map((item, index) => (
-              <div key={index} className='table-layout' >
+              <Link to={`/coin/${item.id}`} key={index} className='table-layout' >
                 <p>{item.market_cap_rank}</p>
                 <div>
                   <img src={item.image} alt="" />
@@ -51,7 +77,7 @@ const Home = () => {
                 <p className={item.price_change_percentage_24h > 0 ? "green" : "red"}>
                   {Math.floor(item.price_change_percentage_24h * 100) / 100}</p>
                 <p className='market-cap' >{currency.Symbol} {item.market_cap.toLocaleString()}</p>
-              </div>
+              </Link>
             ))
           }
         </div>
