@@ -44,7 +44,7 @@ const Navbar = () => {
                 {show
                     &&
                     <div className="mobile-menu">
-                        <Link to={"/"} ><li>Home</li></Link>
+                        <Link className='mobile-home' to={"/"} ><li>Home</li></Link>
                         <Link to={"/features"} ><li >Features</li></Link>
                         <Link to={"/pricing"} ><li>Pricing</li></Link>
                     </div>}
