@@ -11,22 +11,22 @@ const Navbar = () => {
     const currencyHandler = (event) => {
         switch (event.target.value) {
             case "usd": {
-                setCurrency({ name: "usd", Symbol: "$" });
+                setCurrency({ name: "usd", symbol: "$" });
                 break;
             }
 
             case "eur": {
-                setCurrency({ name: "eur", Symbol: "Є" });
+                setCurrency({ name: "eur", symbol: "Є" });
                 break;
             }
 
             case "inr": {
-                setCurrency({ name: "inr", Symbol: "₹ " });
+                setCurrency({ name: "inr", symbol: "₹ " });
                 break;
             }
 
             default: {
-                setCurrency({ name: "usd", Symbol: "$" });
+                setCurrency({ name: "usd", symbol: "$" });
                 break;
             }
         }

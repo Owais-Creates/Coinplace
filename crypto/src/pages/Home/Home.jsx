@@ -76,7 +76,7 @@ const Home = () => {
                 <p>{currency.symbol} {item.current_price.toLocaleString()}</p>
                 <p className={item.price_change_percentage_24h > 0 ? "green" : "red"}>
                   {Math.floor(item.price_change_percentage_24h * 100) / 100}</p>
-                <p className='market-cap' >{currency.Symbol} {item.market_cap.toLocaleString()}</p>
+                <p className='market-cap' >{currency.symbol} {item.market_cap.toLocaleString()}</p>
               </Link>
             ))
           }
