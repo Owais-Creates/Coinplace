@@ -46,7 +46,7 @@ const Price = () => {
         <div className="card-container">
 
           {plans.map((item, index) => (
-            <div className="card">
+            <div key={index} className="card">
 
               <p className='custom-para1'>{item.time}</p>
               <p className='custom-para'>{item.billing}</p>
@@ -66,12 +66,3 @@ const Price = () => {
 
 export default Price
 
-{/* <div className="card">
-
-<p className='custom-para1'>Monthly</p>
-<p className='custom-para'>$10 billed monthly</p>
-<p className='custom1'><span>$10</span> per month</p>
-<p className='custom2'>or billed yearly $8.32/month</p>
-<div><button className='button' >Upgrade to premium</button></div>
-
-</div> */}

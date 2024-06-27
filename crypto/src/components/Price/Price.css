@@ -22,6 +22,11 @@
     color: blueviolet;
 }
 
+img{
+    display: flex;
+    justify-content: center;
+}
+
 .img img {
     height: 350px;
     width: 260px;
@@ -42,6 +47,7 @@
 .card-container {
     max-width: 900px;
     display: flex;
+    justify-content: center;
     gap: 30px;
     flex-wrap: wrap;
 }
@@ -110,3 +116,32 @@ button:hover {
     color: #b1b0b0;
     font-size: 15px;
 }
+
+@media (max-width:760px) {
+
+    .top{
+        flex-wrap: wrap;
+    }
+
+    .img img {
+        height: 200px;
+        width: 150px;
+        margin-left: 110px;
+        margin-top: 30px;
+    }
+
+    .heading h2 {
+        font-size: 30px;
+        padding: 0px 50px;
+    }
+    .bottom-heading {
+        font-size: 30px;
+        color: blueviolet;
+        font-weight: 600;
+    }
+    .card{
+        margin-bottom: 20px;
+    }
+
+}
+
