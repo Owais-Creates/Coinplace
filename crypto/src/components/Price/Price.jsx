@@ -1,8 +1,9 @@
 import React from 'react'
+import './Price.css'
 
 const Price = () => {
   return (
-    <div>nigga is the balls</div>
+    <div className='price'>pricing</div>
   )
 }
 

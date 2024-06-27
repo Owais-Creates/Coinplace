@@ -35,18 +35,24 @@ const Navbar = () => {
         }
     }
 
+    const mobileMenuHandler = () => {
+        setShow(prev => !prev)
+    }
+
     return (
         <>
             <div className='navbar' >
 
-                <img onClick={() => setShow(prev => !prev)} className='ham' src={ham} alt="" />
+                <img onClick={mobileMenuHandler} className='ham' src={ham} alt="" />
 
                 {show
                     &&
                     <div className="mobile-menu">
-                        <Link className='mobile-home' to={"/"} ><li>Home</li></Link>
-                        <Link to={"/features"} ><li >Features</li></Link>
-                        <Link to={"/pricing"} ><li>Pricing</li></Link>
+                        <div className='mobile-links' >
+                            <Link onClick={mobileMenuHandler} className='mobile-home' to={"/"} ><li>Home</li></Link>
+                            <Link onClick={mobileMenuHandler}  to={"/features"} ><li >Features</li></Link>
+                            <Link onClick={mobileMenuHandler} to={"/pricing"} ><li>Pricing</li></Link>
+                        </div>
                     </div>}
 
                 <Link to={"/"} >

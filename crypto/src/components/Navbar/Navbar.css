@@ -57,6 +57,11 @@
     .navbar {
         padding: 20px 8%;
     }
+
+    .mobile-home {
+        margin-left: 100px;
+    }
+
 }
 
 @media(max-width:768px) {
@@ -75,8 +80,16 @@
     .mobile-menu {
         display: block;
         color: white;
+        width: 100%;
         position: absolute;
         top: 8%;
+        display: flex;
+        justify-content: center;
+        margin-left: -65px;
+
+    }
+
+    .mobile-links {
         margin-bottom: 20px;
         display: flex;
         gap: 30px;
@@ -87,10 +100,5 @@
         font-size: 18px;
         margin-top: 20px;
     }
-
-    .mobile-home {
-        margin-left: 50px;
-    }
-
 
 }
