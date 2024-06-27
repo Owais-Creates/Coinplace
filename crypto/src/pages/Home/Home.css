@@ -55,11 +55,13 @@
     cursor: pointer;
 }
 
+
 .crypto-table {
     max-width: 800px;
     margin: auto;
     background: linear-gradient(rgba(84, 3, 255, 0.15), rgba(105, 2, 153, 0.15));
     border-radius: 15px;
+    overflow: auto;
 }
 
 .table-layout {
@@ -68,6 +70,7 @@
     padding: 15px 20px;
     align-items: center;
     border-bottom: 1px solid #3c3c3c;
+    overflow: auto;
 }
 
 .hour-change {
