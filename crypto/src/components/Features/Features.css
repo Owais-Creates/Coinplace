@@ -21,11 +21,13 @@
 
 .feature-container p strong {
     text-decoration: underline;
+    color: blueviolet;
 }
 
 
 .feature {
     margin-bottom: 50px;
+
 }
 
 .dot {

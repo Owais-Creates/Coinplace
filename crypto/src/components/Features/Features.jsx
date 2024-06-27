@@ -9,7 +9,7 @@ const Features = () => {
       "Routing": "Routes to specific coin detail pages and Navlinks providing in-depth information.",
       "Search": "Allows users to search for specific cryptocurrencies easily.",
       "Price Tracking": "Provides up-to-date price information for various cryptocurrencies.",
-      "User-Friendly Interface": "Designed with a clean and intuitive UI for seamless navigation and usage.",
+      "User-Friendly": "Designed with a clean and intuitive UI for seamless navigation and usage.",
       "Currency Switching": "Allows changing the currency between USD, INR, Euro across the application.",
     };
 

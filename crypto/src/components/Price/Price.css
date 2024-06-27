@@ -1,4 +1,112 @@
-.price{
-    margin-top: 70px;
-    color: aqua;
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+    max-width: 800px;
+    margin: 20px 0px;
+}
+
+.heading h2 {
+    font-size: 40px;
+}
+
+.heading span {
+    color: blueviolet;
+}
+
+.img img {
+    height: 350px;
+    width: 260px;
+}
+
+.bottom {
+    max-width: 800px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+.bottom-heading {
+    font-size: 40px;
+    color: blueviolet;
+    font-weight: 500;
+}
+
+.card-container {
+    max-width: 900px;
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background-color: white;
+    padding: 20px 60px;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 50px;
+    border: 5px solid #7429C6;
+}
+
+button {
+
+    padding: 10px 30px;
+    color: white;
+    background-color: #C951E7;
+    border-radius: 10px;
+    font-size: 1rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    transform: 0.5s ease;
+    position: relative;
+
+}
+
+button:hover {
+    background-color: #7429C6;
+    transition: 0.3s ease;
+    box-shadow: #7429C6;
+}
+
+.custom-para1 {
+    color: #000;
+    font-weight: 600;
+    font-size: 25px;
+}
+
+.custom-para {
+    color: #b1b0b0;
+    font-weight: 200;
+    font-size: 15px;
+}
+
+.custom1 {
+    margin-top: 22px;
+    color: #000;
+    font-size: 20px;
+    font-weight: 200;
+
+}
+
+.custom1 span {
+    color: #7429C6;
+    font-weight: 600;
+}
+
+.custom2 {
+    margin-bottom: 22px;
+    font-weight: 200;
+    color: #b1b0b0;
+    font-size: 15px;
 }
