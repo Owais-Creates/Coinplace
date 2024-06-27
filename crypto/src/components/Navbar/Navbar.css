@@ -79,7 +79,7 @@
         top: 8%;
         margin-bottom: 20px;
         display: flex;
-        gap: 100px;
+        gap: 30px;
     }
 
     .mobile-menu li {
@@ -89,7 +89,7 @@
     }
 
     .mobile-home {
-        margin-left: 35px;
+        margin-left: 50px;
     }
 
 
