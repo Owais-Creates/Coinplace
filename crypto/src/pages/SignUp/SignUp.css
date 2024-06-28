@@ -36,11 +36,14 @@
 
 .form-container form label {
     font-size: 40px;
-    color: #fff;
     font-weight: 700;
     position: absolute;
     bottom: 50%;
     left: 10%;
+}
+
+.form-container form label span{
+    color: #9945e9;
 }
 
 .form-container form input {
@@ -57,28 +60,32 @@
     outline: none;
 }
 
-.error{
+.error {
     position: absolute;
     bottom: 30%;
+    left: 10%;
     color: #bf3737;
     font-weight: 200;
     font-size: 15px;
 }
 
 .signup-btn {
-    background: transparent;
-    border: 2px solid white;
-    padding: 10px 40px;
+    padding: 12px 30px;
+    background-color: #fff;
+    color: #000;
+    font-weight: 500;
+    border-radius: 50px;
     display: flex;
     align-items: center;
+    justify-content: center;
     position: absolute;
     bottom: 12%;
-    left: 30%;
+    left: 40%;
 }
 
-.arrow {
-    transition: 0.5s ease;
-    margin-left: 6px;
+.signup-btn:hover{
+    background-color: #fff;
+
 }
 
 .signup-btn:hover .arrow {
@@ -86,8 +93,65 @@
     transition: 0.5s ease;
 }
 
+
+.arrow {
+    transition: 0.5s ease;
+    margin-left: 6px;
+}
+
+.login-credentials-container {
+    width: 100%;
+    height: 82vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-credentials-container h1 {
+    font-size: 45px;
+    display: flex;
+    align-items: center;
+}
+
+.login-credentials-container img {
+    width: 60px;
+    height: 60px;
+}
+
+.value-container-div{
+    background-color: black;
+    padding: 50px 80px;
+    margin-top: 20px;
+    border-radius: 20px;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.login-credentials-container p span {
+    color: #9945e9;
+    font-size: 21px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.login-password {
+    color: blueviolet;
+    font-size: 21px;
+    font-weight: 500;
+}
+
+.redirect-p{
+    font-size: 19px;
+}
+
+
 @media (max-width:600px) {
-    .form-image{
+    .form-image {
         display: none;
     }
 }

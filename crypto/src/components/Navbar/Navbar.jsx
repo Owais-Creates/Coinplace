@@ -4,6 +4,7 @@ import logo from "../../assets/logo.png"
 import ham from "../../assets/ham.webp"
 import { useCoin } from "../../context/CoinContext"
 import { NavLink, Link } from 'react-router-dom'
+import { MdArrowOutward } from "react-icons/md";
 
 
 const Navbar = () => {
@@ -72,7 +73,7 @@ const Navbar = () => {
                         <option value="eur">EUR</option>
                         <option value="inr">INR</option>
                     </select>
-                    <Link to={"/signup"} ><button className='sign-up-btn' >Sign up</button></Link>
+                    <Link to={"/signup"} ><button className='sign-up-btn' >Sign up <span className='sign-up-btn-icon' ><MdArrowOutward/></span> </button></Link>
                 </div>
 
             </div>

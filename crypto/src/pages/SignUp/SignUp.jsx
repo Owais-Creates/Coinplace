@@ -1,12 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import "./SignUp.css";
 import woman from "../../assets/woman.png";
+import tick from "../../assets/tick.png";
 import { MdArrowOutward } from "react-icons/md";
 
+
 const SignUp = () => {
+
+  const navigate = useNavigate();
+
   const inputs = [
     {
-      label: "your first name",
+      label: "your first name ?",
+      name: "First Name",
       type: "text",
       placeholder: "Enter your first name...",
       btn: "Next",
@@ -14,7 +21,8 @@ const SignUp = () => {
       validate: (value) => value.length > 3,
     },
     {
-      label: "your last name",
+      label: "your last name ?",
+      name: "Last Name",
       type: "text",
       placeholder: "Enter your last name...",
       btn: "Next",
@@ -22,7 +30,8 @@ const SignUp = () => {
       validate: (value) => value.length > 2,
     },
     {
-      label: "your email",
+      label: "your email ?",
+      name: "Email",
       type: "email",
       placeholder: "Enter your email...",
       btn: "Next",
@@ -30,7 +39,8 @@ const SignUp = () => {
       validate: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
     },
     {
-      label: "your password",
+      label: "your password ?",
+      name: "Password",
       type: "password",
       placeholder: "Enter your password...",
       btn: "Submit",
@@ -42,7 +52,22 @@ const SignUp = () => {
   const [current, setCurrent] = useState(0);
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState(false);
-  const [login, setLogin] = useState([]);
+  const [count, setCount] = useState(10)
+  const [login, setLogin] = useState([
+    {
+      name: "First Name",
+      value: ""
+    },
+    {
+      name: "Last Name",
+      value: ""
+
+    },
+    {
+      name: "Email",
+      value: ""
+    }
+  ]);
 
   const handleInput = (e) => {
     const value = e.target.value;
@@ -52,8 +77,11 @@ const SignUp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     if (inputs[current].validate(inputValue)) {
-      setLogin((prev) => [...prev, inputValue]);
+
+      setLogin(prev => prev.map((item, index) => index === current ? { ...item, value: inputValue } : item));
+
       setCurrent((prev) => prev + 1);
       setInputValue("");
     } else {
@@ -62,8 +90,29 @@ const SignUp = () => {
   };
 
   useEffect(() => {
-    console.log(login);
-  }, [login]);
+    let timer;
+
+    if (current === inputs.length) {
+      timer = setInterval(() => {
+        setCount((prevCount) => {
+          if (prevCount > 0) {
+            return prevCount - 1;
+          } else {
+            clearInterval(timer);
+            return prevCount;
+          }
+        });
+      }, 1000);
+    }
+
+    return () => clearInterval(timer);
+  }, [current]);
+
+  useEffect(() => {
+    if (count === 0) {
+      navigate("/");
+    }
+  }, [count]);
 
   return (
     <>
@@ -71,7 +120,7 @@ const SignUp = () => {
         <div className='div'>
           <div className='form-container'>
             <form>
-              <label>What is <br />{inputs[current].label}</label>
+              <label className='label' >What is <br /><span>{inputs[current].label}</span></label>
               <input
                 onChange={handleInput}
                 value={inputValue}
@@ -95,13 +144,16 @@ const SignUp = () => {
       ) : (
 
         <>
-          <h1>Signup successfull</h1>
-          <div>
-            {login.map((item, index) => (
-              <p key={index} >{item}</p>
-            ))}
+
+          <div className='login-credentials-container' >
+            <h1>Signup successfull <img src={tick} alt="" /> </h1>
+            <div className='value-container-div' >
+              {login.map((item, index) => <p className='login-p' key={index} > <span>{item.name}:</span> &nbsp;  {item.value}</p>)}
+              <p ><span>Password:</span> &nbsp; Shh...🤫🤫</p>
+            </div>
+            <p className='redirect-p' >Success... Taking you to the homepage in {count} ...</p>
           </div>
-          <p>Password: Shh...🤫🤫</p>
+
         </>
 
       )}

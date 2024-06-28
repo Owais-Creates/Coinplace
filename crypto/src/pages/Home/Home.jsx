@@ -33,7 +33,7 @@ const Home = () => {
 
 
   useEffect(() => {
-    setDisplayCoin(allCoin)
+    setDisplayCoin(allCoin);
   }, [allCoin])
 
   return (
