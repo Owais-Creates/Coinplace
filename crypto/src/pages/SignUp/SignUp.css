@@ -151,7 +151,46 @@
 
 
 @media (max-width:600px) {
+
+    .form-container{
+        width: 80%;
+        padding: 10px;
+    }
+
     .form-image {
         display: none;
     }
+
+    .form-container form label{
+        font-size: 30px;
+        bottom: 55%;
+        left: -20%;
+        /* background-color: #9945e9; */
+        width: 280px;
+    }
+
+    .form-container form input{
+        left: -28%;
+        width: 250px;
+        bottom: 37%;
+    }
+
+    .error{
+        width: 300px;
+        left: -30%;
+        bottom: 25%;
+    }
+
+    .signup-btn{
+        bottom: 1%;
+    }
+
+    .login-credentials-container h1{
+        font-size: 30px;
+    }
+
+    .value-container-div{
+        padding: 25px 35px;
+    }
+    
 }

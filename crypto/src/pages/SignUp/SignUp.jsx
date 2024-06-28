@@ -49,7 +49,7 @@ const SignUp = () => {
     }
   ];
 
-  const [current, setCurrent] = useState(0);
+  const [current, setCurrent] = useState(9);
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState(false);
   const [count, setCount] = useState(10)
@@ -89,30 +89,30 @@ const SignUp = () => {
     }
   };
 
-  useEffect(() => {
-    let timer;
+  // useEffect(() => {
+  //   let timer;
 
-    if (current === inputs.length) {
-      timer = setInterval(() => {
-        setCount((prevCount) => {
-          if (prevCount > 0) {
-            return prevCount - 1;
-          } else {
-            clearInterval(timer);
-            return prevCount;
-          }
-        });
-      }, 1000);
-    }
+  //   if (current === inputs.length) {
+  //     timer = setInterval(() => {
+  //       setCount((prevCount) => {
+  //         if (prevCount > 0) {
+  //           return prevCount - 1;
+  //         } else {
+  //           clearInterval(timer);
+  //           return prevCount;
+  //         }
+  //       });
+  //     }, 1000);
+  //   }
 
-    return () => clearInterval(timer);
-  }, [current]);
+  //   return () => clearInterval(timer);
+  // }, [current]);
 
-  useEffect(() => {
-    if (count === 0) {
-      navigate("/");
-    }
-  }, [count]);
+  // useEffect(() => {
+  //   if (count === 0) {
+  //     navigate("/");
+  //   }
+  // }, [count]);
 
   return (
     <>
