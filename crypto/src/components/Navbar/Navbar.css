@@ -28,6 +28,7 @@
 
 .navbar li {
     cursor: pointer;
+    font-size: 20px;
 }
 
 .mouse-over:hover {
@@ -38,6 +39,23 @@
     display: flex;
     align-items: center;
     gap: max(1vw, 12px);
+}
+
+.sign-up-btn{
+    background-color: white;
+    padding: 4px 15px;
+    color: black;
+    font-weight: 500;
+    border: 4px solid blueviolet;
+    transition: 0.2s ease;
+    text-decoration: none;
+}
+
+.sign-up-btn:hover{
+    border: 4px solid black;
+    color: blueviolet;
+    transition: 0.2s ease;
+    background-color: #fff;
 }
 
 .navbar select {

@@ -68,7 +68,7 @@ const Home = () => {
             </div>
 
             {
-              displayCoin.slice(0,15).map((item, index) => (
+              displayCoin.slice(0,50).map((item, index) => (
                 <Link to={`/coin/${item.id}`} key={index} className='table-layout' >
                   <p>{item.market_cap_rank}</p>
                   <div>
