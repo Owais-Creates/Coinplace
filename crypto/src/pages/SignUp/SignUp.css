@@ -164,25 +164,24 @@
     .form-container form label{
         font-size: 30px;
         bottom: 55%;
-        left: -20%;
-        /* background-color: #9945e9; */
+        left: -30%;
         width: 280px;
     }
 
     .form-container form input{
-        left: -28%;
+        left: -35%;
         width: 250px;
         bottom: 37%;
     }
 
     .error{
         width: 300px;
-        left: -30%;
+        left: -35%;
         bottom: 25%;
     }
 
     .signup-btn{
-        bottom: 1%;
+        bottom: 10%;
     }
 
     .login-credentials-container h1{
