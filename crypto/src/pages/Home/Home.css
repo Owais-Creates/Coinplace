@@ -184,28 +184,7 @@
     cursor: pointer;
 }
 
-.modal-paragraph{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
 
-.modal-paragraph h1 {
-    margin-top: 20px;
-    font-size: 27px;
-    text-align: center;
-}
-
-.modal-paragraph p{
-    margin-top: 12px;
-    color: #000;
-    text-align: center;
-    width: 300px;
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 20px;
-}
 
 @keyframes rotate {
     100% {

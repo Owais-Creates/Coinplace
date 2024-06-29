@@ -3,15 +3,15 @@ import './Home.css'
 import { useCoin } from '../../context/CoinContext'
 import { Link } from 'react-router-dom'
 import modal from "../../assets/modal.jpg"
-import { ImCross } from "react-icons/im";
+import Modal from '../../components/Modal/Modal'
+
 
 
 const Home = () => {
 
-  const { allCoin, currency } = useCoin();
+  const { allCoin, currency, setIsModalActive, isModalActive } = useCoin();
   const [displayCoin, setDisplayCoin] = useState([]);
   const [input, setInput] = useState("");
-  const [isModalActive, setIsModalActive] = useState(false);
 
   const handleInput = (e) => {
     setInput(e.target.value);
@@ -35,21 +35,25 @@ const Home = () => {
     }
   };
 
-  const handleModal = () => {
-    setIsModalActive(false)
-  }
-
   useEffect(() => {
     setDisplayCoin(allCoin)
   }, [allCoin])
 
   useEffect(() => {
+    const modalShown = localStorage.getItem("modalShown");
+    if (!modalShown) {
+      setTimeout(() => {
+        setIsModalActive(true);
+        localStorage.setItem("modalShown", "true");
+      }, 2500);
+    }
 
-    setTimeout(() => {
-      setIsModalActive(true)
-    }, 3000)
+    const handleBeforeUnload = () => {
+      localStorage.removeItem("modalShown");
+    };
 
-  }, [])
+    window.addEventListener("beforeunload", handleBeforeUnload);
+  }, [setIsModalActive]);
 
   return (
     <>
@@ -101,25 +105,8 @@ const Home = () => {
         </div>
 
         :
-        <div onClick={handleModal} className="modal-container">
 
-          <div className="modal">
-
-            <div className='modal-img-container' >
-              <img src={modal} alt="" />
-              <div onClick={handleModal} >
-                <ImCross className='cross-icon' />
-              </div>
-            </div>
-
-            <div className='modal-paragraph' >
-              <h1>Welcome to the Coinplace</h1>
-              <p>Your all in one cryptocurrency place to find all the information about the coins. </p>
-            </div>
-
-          </div>
-
-        </div>
+        <Modal />
 
       }
     </>

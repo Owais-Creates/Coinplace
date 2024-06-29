@@ -7,8 +7,12 @@ import Footer from './components/Footer/Footer'
 import Price from './components/Price/Price'
 import Features from './components/Features/Features'
 import SignUp from './pages/SignUp/SignUp'
+import { useCoin } from './context/CoinContext'
 
 const App = () => {
+
+  const { isModalActive } = useCoin()
+
   return (
     <div className='app' >
       <Navbar />
@@ -19,7 +23,7 @@ const App = () => {
         <Route path='/features' element={<Features />} />
         <Route path='/signup' element={<SignUp />} />
       </Routes>
-      <Footer />
+      {!isModalActive && <Footer />}
     </div>
   )
 }

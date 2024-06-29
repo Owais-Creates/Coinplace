@@ -9,10 +9,15 @@ export const useCoin = () => {
 const CoinProvider = (props) => {
 
     const [allCoin, setAllCoin] = useState([]);
+    const [isModalActive, setIsModalActive] = useState(false);
     const [currency, setCurrency] = useState({
         name: "usd",
         symbol: "$"
     });
+
+    const handleModal = () => {
+        setIsModalActive(false)
+      }
 
     const fetchAllCoin = async () => {
         const options = {
@@ -38,6 +43,9 @@ const CoinProvider = (props) => {
         setAllCoin,
         currency,
         setCurrency,
+        isModalActive,
+        setIsModalActive,
+        handleModal
     }
 
     return (
