@@ -1,6 +1,7 @@
 .home {
     padding: 0px 10px;
     padding-bottom: 100px;
+    position: relative;
 }
 
 .hero {
@@ -122,6 +123,90 @@
     animation: rotate 2s infinite;
 }
 
+.modal-container {
+    width: 100%;
+    height: 100vh;
+    background-color: #bdbdbd;
+    position: absolute;
+    top: -0.2%;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal {
+    width: 382px;
+    border-radius: 20px;
+    background-color: aliceblue;
+    padding:10px;
+    background: rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+
+.modal-img-container {
+    height: 170px;
+    width: 400px;
+    overflow: hidden;
+    border-radius: 20px;
+    background-position: center;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.modal-img-container img {
+    width: 90%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.cross-icon {
+    margin-top: 10px;
+    margin-right: 10px;
+    padding: 5px;
+    border-radius: 50%;
+    font-size: 25px;
+    transition: 0.5s ease;
+    position: absolute;
+    z-index: 999;
+    left: 82%;
+}
+
+.cross-icon:hover {
+    background-color: #000;
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+.modal-paragraph{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modal-paragraph h1 {
+    margin-top: 20px;
+    font-size: 27px;
+    text-align: center;
+}
+
+.modal-paragraph p{
+    margin-top: 12px;
+    color: #000;
+    text-align: center;
+    width: 300px;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
 @keyframes rotate {
     100% {
         transform: rotate(360deg);
@@ -131,21 +216,24 @@
 @media(max-width:768px) {
     .table-layout {
         grid-template-columns: 0.5fr 3fr 1fr 1fr;
-        
+
     }
-    .market-cap{
+
+    .market-cap {
         display: none;
     }
 }
 
-@media(max-width:500px){
-    .table-layout div img{
+@media(max-width:500px) {
+    .table-layout div img {
         width: 25px;
     }
-    .table-layout{
+
+    .table-layout {
         font-size: 13px;
     }
-    .hero form input{
+
+    .hero form input {
         width: 100px;
     }
 }
