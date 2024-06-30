@@ -47,7 +47,7 @@ const SignUp = () => {
       placeholder: "Enter your password...",
       btn: "Submit",
       backBtn: "Back",
-      error: "Passowrd should be longer than 6 words",
+      error: "Password should be longer than 6 characters",
       validate: (value) => value.length > 6,
     }
   ];
@@ -55,22 +55,13 @@ const SignUp = () => {
   const [current, setCurrent] = useState(0);
   const [inputValue, setInputValue] = useState("");
   const [error, setError] = useState(false);
-  const [count, setCount] = useState(10)
-  const [login, setLogin] = useState([
-    {
-      name: "First Name",
-      value: ""
-    },
-    {
-      name: "Last Name",
-      value: ""
-
-    },
-    {
-      name: "Email",
-      value: ""
-    }
-  ]);
+  const [count, setCount] = useState(10);
+  const [login, setLogin] = useState({
+    "First Name": "",
+    "Last Name": "",
+    "Email": "",
+    "Password": ""
+  });
 
   const handleInput = (e) => {
     const value = e.target.value;
@@ -82,26 +73,32 @@ const SignUp = () => {
     e.preventDefault();
 
     if (inputs[current].validate(inputValue)) {
-
-      setLogin(prev => prev.map((item, index) => index === current ? { ...item, value: inputValue } : item));
-
-      setCurrent((prev) => prev + 1);
+      setLogin(prev => ({ ...prev, [inputs[current].name]: inputValue }));
+      setCurrent(prev => prev + 1);
       setInputValue("");
     } else {
       setError(true);
     }
   };
 
-  const handleBack = () => {
-    setCurrent(prev => prev - 1)
-  }
+  const handleBack = (e) => {
+    e.preventDefault()
+    setCurrent(prev => prev - 1);
+    setInputValue(login[inputs[current - 1].name]);
+  };
+
+  useEffect(() => {
+    if (current < inputs.length) {
+      setInputValue(login[inputs[current].name]);
+    }
+  }, [current]);
 
   useEffect(() => {
     let timer;
 
     if (current === inputs.length) {
       timer = setInterval(() => {
-        setCount((prevCount) => {
+        setCount(prevCount => {
           if (prevCount > 0) {
             return prevCount - 1;
           } else {
@@ -119,7 +116,7 @@ const SignUp = () => {
     if (count === 0) {
       navigate("/");
     }
-  }, [count]);
+  }, [count, navigate]);
 
   return (
     <>
@@ -127,7 +124,7 @@ const SignUp = () => {
         <div className='div'>
           <div className='form-container'>
             <form>
-              <label className='label' >What is <br /><span>{inputs[current].label}</span></label>
+              <label className='label'>What is <br /><span>{inputs[current].label}</span></label>
               <input
                 onChange={handleInput}
                 value={inputValue}
@@ -142,7 +139,11 @@ const SignUp = () => {
                 {inputs[current].btn} <MdArrowOutward className='arrow' />
               </button>
 
-              {current > 0 && <button onClick={handleBack} className='back-btn' > <MdArrowOutward className='back-arrow' /> {inputs[current].backBtn}</button>}
+              {current > 0 && (
+                <button onClick={(e) => handleBack(e)} className='back-btn'>
+                  <MdArrowOutward className='back-arrow' /> {inputs[current].backBtn}
+                </button>
+              )}
             </form>
             <div className="form-image">
               <img src={woman} alt="" />
@@ -150,20 +151,17 @@ const SignUp = () => {
           </div>
         </div>
       ) : (
-
-        <>
-
-          <div className='login-credentials-container' >
-            <h1>Signup successfull <img src={tick} alt="" /> </h1>
-            <div className='value-container-div' >
-              {login.map((item, index) => <p className='login-p' key={index} > <span>{item.name}:</span> &nbsp;  {item.value}</p>)}
-              <p ><span>Password:</span> &nbsp; Shh...🤫🤫</p>
-            </div>
-            <p className='redirect-p' >Success... Taking you to the homepage in {count} ...</p>
+        <div className='login-credentials-container'>
+          <h1>Signup successful <img src={tick} alt="" /> </h1>
+          <div className='value-container-div'>
+            {Object.entries(login).map(([key, value], index) => (
+              <p className='login-p' key={index}>
+                <span>{key}:</span> &nbsp; {key === "Password" ? "Shh...🤫🤫" : value}
+              </p>
+            ))}
           </div>
-
-        </>
-
+          <p className='redirect-p'>Success... Taking you to the homepage in {count} ...</p>
+        </div>
       )}
     </>
   );
