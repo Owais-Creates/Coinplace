@@ -27,6 +27,7 @@ const SignUp = () => {
       placeholder: "Enter your last name...",
       btn: "Next",
       error: "Your last name should be more than 2 characters long",
+      backBtn: "Back",
       validate: (value) => value.length > 2,
     },
     {
@@ -36,6 +37,7 @@ const SignUp = () => {
       placeholder: "Enter your email...",
       btn: "Next",
       error: "Please enter a valid email address",
+      backBtn: "Back",
       validate: (value) => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value),
     },
     {
@@ -44,6 +46,7 @@ const SignUp = () => {
       type: "password",
       placeholder: "Enter your password...",
       btn: "Submit",
+      backBtn: "Back",
       error: "Passowrd should be longer than 6 words",
       validate: (value) => value.length > 6,
     }
@@ -88,6 +91,10 @@ const SignUp = () => {
       setError(true);
     }
   };
+
+  const handleBack = () => {
+    setCurrent(prev => prev - 1)
+  }
 
   useEffect(() => {
     let timer;
@@ -135,6 +142,8 @@ const SignUp = () => {
               >
                 {inputs[current].btn} <MdArrowOutward className='arrow' />
               </button>
+
+              {current > 0 && <button onClick={handleBack} className='back-btn' > <MdArrowOutward className='back-arrow' /> {inputs[current].backBtn}</button>}
             </form>
             <div className="form-image">
               <img src={woman} alt="" />
