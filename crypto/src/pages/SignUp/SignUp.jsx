@@ -133,7 +133,6 @@ const SignUp = () => {
                 value={inputValue}
                 type={inputs[current].type}
                 placeholder={inputs[current].placeholder}
-                required
               />
               <p className='error'>{error && inputs[current].error}</p>
               <button
