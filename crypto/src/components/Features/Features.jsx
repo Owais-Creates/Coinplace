@@ -11,6 +11,7 @@ const Features = () => {
       "Price Tracking": "Provides up-to-date price information for various cryptocurrencies.",
       "User-Friendly": "Designed with a clean and intuitive UI for seamless navigation and usage.",
       "Currency Switching": "Allows changing the currency between USD, INR, Euro across the application.",
+      "Pagination": "Allows you to navigate through the whole list of coins accordingly.",
     };
 
 console.log(Object.keys(features));
