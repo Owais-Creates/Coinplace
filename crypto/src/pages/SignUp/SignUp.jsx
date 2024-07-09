@@ -4,6 +4,7 @@ import "./SignUp.css";
 import woman from "../../assets/woman.png";
 import tick from "../../assets/tick.png";
 import { MdArrowOutward } from "react-icons/md";
+import { motion } from 'framer-motion';
 
 
 const SignUp = () => {
@@ -124,7 +125,11 @@ const SignUp = () => {
         <div className='div'>
           <div className='form-container'>
             <form>
-              <label className='label'>What is <br /><span>{inputs[current].label}</span></label>
+              <motion.label
+              initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}
+              className='label'>What is <br /><span>{inputs[current].label}</span></motion.label
+              
+              >
               <input
                 onChange={handleInput}
                 value={inputValue}

@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
-import './Navbar.css'
-import logo from "../../assets/logo.png"
-import ham from "../../assets/ham.webp"
-import { useCoin } from "../../context/CoinContext"
-import { NavLink, Link } from 'react-router-dom'
+import React, { useState } from 'react';
+import './Navbar.css';
+import logo from "../../assets/logo.png";
+import ham from "../../assets/ham.webp";
+import { useCoin } from "../../context/CoinContext";
+import { NavLink, Link } from 'react-router-dom';
 import { MdArrowOutward } from "react-icons/md";
+import { motion } from 'framer-motion'
 
 
 const Navbar = () => {
@@ -48,13 +49,15 @@ const Navbar = () => {
 
                 {show
                     &&
-                    <div className="mobile-menu">
+                    <motion.div
+                        initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}
+                        className="mobile-menu">
                         <div className='mobile-links' >
                             <Link onClick={mobileMenuHandler} className='mobile-home' to={"/"} ><li>Home</li></Link>
-                            <Link onClick={mobileMenuHandler}  to={"/features"} ><li >Features</li></Link>
+                            <Link onClick={mobileMenuHandler} to={"/features"} ><li >Features</li></Link>
                             <Link onClick={mobileMenuHandler} to={"/pricing"} ><li>Pricing</li></Link>
                         </div>
-                    </div>}
+                    </motion.div>}
 
                 <Link to={"/"} >
                     <img className='logo' src={logo} alt="logo" />
@@ -73,7 +76,7 @@ const Navbar = () => {
                         <option value="eur">EUR</option>
                         <option value="inr">INR</option>
                     </select>
-                    <Link to={"/signup"} ><button className='sign-up-btn' >Sign up <span className='sign-up-btn-icon' ><MdArrowOutward/></span> </button></Link>
+                    <Link to={"/signup"} ><button className='sign-up-btn' >Sign up <span className='sign-up-btn-icon' ><MdArrowOutward /></span> </button></Link>
                 </div>
 
             </div>

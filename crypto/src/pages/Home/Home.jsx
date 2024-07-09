@@ -4,6 +4,7 @@ import { useCoin } from '../../context/CoinContext'
 import { Link } from 'react-router-dom'
 import Modal from '../../components/Modal/Modal'
 import Pagination from '../../components/Pagination/Pagination'
+import { motion } from 'framer-motion'
 
 const Home = () => {
   const { allCoin, currency, setIsModalActive, isModalActive } = useCoin();
@@ -65,8 +66,10 @@ const Home = () => {
       {!isModalActive ? (
         <div className="home">
           <div className="hero">
-            <h1>Largest <br /> Crypto Marketplace</h1>
-            <p>Welcome to the world's largest cryptocurrency marketplace.</p>
+
+            <motion.h1 initial={{ opacity: 0, y: 100 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }} >Largest <br /> Crypto Marketplace</motion.h1>
+
+            <motion.p initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}>Welcome to the world's largest cryptocurrency marketplace.</motion.p>
 
             <form onSubmit={searchHandler}>
               <input

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Price.css';
 import man from "../../assets/man.png";
 import { RiArrowUpSLine } from "react-icons/ri";
-
+import { motion } from 'framer-motion';
 
 const Price = () => {
 
@@ -62,12 +62,16 @@ const Price = () => {
 
         <div className="top">
 
-          <div className="img">
+          <motion.div
+          initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}
+          className="img">
             <img src={man} alt="image" />
-          </div>
+          </motion.div>
 
           <div className="heading">
-            <h2>Level up your Crypto Journey with <span>Coinplace premium</span></h2>
+            <motion.h2
+              initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}
+            >Level up your Crypto Journey with <span>Coinplace premium</span></motion.h2>
           </div>
 
         </div>
@@ -98,7 +102,7 @@ const Price = () => {
 
           {cryptoFAQs.map((item, index) => (
             <div key={index} className="faq">
-              <h3 onClick={() => handleFaqsToggle(index)} >{item.question} <span className={ isOpen[index] ? `rotate` : "" } ><RiArrowUpSLine /></span></h3>
+              <h3 onClick={() => handleFaqsToggle(index)} >{item.question} <span className={isOpen[index] ? `rotate` : ""} ><RiArrowUpSLine /></span></h3>
               <p  >{isOpen[index] && item.answer}</p>
             </div>
           ))}
