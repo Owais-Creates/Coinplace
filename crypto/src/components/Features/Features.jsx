@@ -12,6 +12,7 @@ const Features = () => {
       "User-Friendly": "Designed with a clean and intuitive UI for seamless navigation and usage.",
       "Currency Switching": "Allows changing the currency between USD, INR, Euro across the application.",
       "Pagination": "Allows you to navigate through the whole list of coins accordingly.",
+      "Jump To Page": "Added a direct jump to page functionality with error handling for out of bounds inputs.",
     };
 
 console.log(Object.keys(features));
