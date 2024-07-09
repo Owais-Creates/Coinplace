@@ -2,7 +2,23 @@ import React, { useEffect, useState } from 'react'
 import './Pagination.css';
 
 
+
+
 const Pagination = ({ postsPerPage, totalPosts, currentPage, setCurrentPage }) => {
+
+    const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+    const updateScreenWidth = () => {
+      setScreenWidth(window.innerWidth);
+    };
+  
+    useEffect(() => {
+      window.addEventListener('resize', updateScreenWidth);
+  
+      return () => {
+        window.removeEventListener('resize', updateScreenWidth);
+      };
+    }, []);
 
     const totalPages = Math.ceil(totalPosts.length / postsPerPage);
     const pages = [];
@@ -30,7 +46,9 @@ const Pagination = ({ postsPerPage, totalPosts, currentPage, setCurrentPage }) =
                 <button
                     className={currentPage === 1 ? "disabled-btn" : ""}
                     onClick={() => handlePrevButton()}
-                    disabled={currentPage === 1} >Prev</button>
+                    disabled={currentPage === 1} >
+                        {screenWidth > 600 ? "prev" : "<<"}
+                    </button>
 
                 {pages.map((item, index) => (
 
@@ -45,10 +63,11 @@ const Pagination = ({ postsPerPage, totalPosts, currentPage, setCurrentPage }) =
                 <button
                     className={currentPage === totalPages ? "disabled-btn" : ''}
                     onClick={handleNextButton}
-                    disabled={currentPage === totalPages}
-                >Next
+                    disabled={currentPage === totalPages}>
+                        {screenWidth > 600 ? "next" : ">>"}
                 </button>
             </div>
+
         </>
     )
 }

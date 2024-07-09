@@ -14,6 +14,10 @@
     cursor: pointer;
     transition: 0.5s ease;
     font-weight: 900;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: inherit;
 }
 
 .page-number:hover {
@@ -28,4 +32,18 @@
 .disabled-btn:hover {
     background-color: #afb2b2;
     cursor: none;
+}
+
+@media (max-width:600px){
+    .pages-container{
+        gap: 5px;
+    }
+
+    .page-number{
+        font-weight: 600;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 }

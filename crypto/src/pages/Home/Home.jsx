@@ -13,7 +13,7 @@ const Home = () => {
 
   // For pagination
   const [currentPage, setCurrentPage] = useState(1);
-  const postsPerPage = 10;
+  const postsPerPage = 20;
 
   const firstIndex = (currentPage - 1) * postsPerPage;
   const lastIndex = firstIndex + postsPerPage;
