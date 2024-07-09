@@ -1,0 +1,31 @@
+.pages-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 40px 0px 10px 0px;
+}
+
+.page-number {
+    padding: 8px 15px;
+    border: 1px solid black;
+    border-radius: 10px;
+    color: black;
+    background-color: white;
+    cursor: pointer;
+    transition: 0.5s ease;
+    font-weight: 900;
+}
+
+.page-number:hover {
+    background-color: #afb2b2;
+    transition: 0.5s ease;
+}
+
+.disabled-btn {
+    background-color: #afb2b2;
+}
+
+.disabled-btn:hover {
+    background-color: #afb2b2;
+    cursor: none;
+}
