@@ -103,7 +103,7 @@ const Price = () => {
           {cryptoFAQs.map((item, index) => (
             <div key={index} className="faq">
               <h3 onClick={() => handleFaqsToggle(index)} >{item.question} <span className={isOpen[index] ? `rotate` : ""} ><RiArrowUpSLine /></span></h3>
-              <p  >{isOpen[index] && item.answer}</p>
+              <p>{isOpen[index] && item.answer}</p>
             </div>
           ))}
 

@@ -114,17 +114,23 @@ const Home = () => {
             ))}
           </div>
 
-          <div>
-            {!isSearching && (
-              <Pagination
-                postsPerPage={postsPerPage}
-                totalPosts={displayCoin}
-                currentPage={currentPage}
-                setCurrentPage={setCurrentPage}
-                lastIndex={lastIndex}
-              />
-            )}
-          </div>
+          {displayCoin.length < 1
+            ?
+            <h1>Loading...</h1>
+            :
+            <div>
+              {!isSearching && (
+                <Pagination
+                  postsPerPage={postsPerPage}
+                  totalPosts={displayCoin}
+                  currentPage={currentPage}
+                  setCurrentPage={setCurrentPage}
+                  lastIndex={lastIndex}
+                />
+              )}
+            </div>
+          }
+
         </div>
       ) : (
         <Modal />
