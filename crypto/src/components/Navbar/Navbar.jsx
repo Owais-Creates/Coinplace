@@ -67,6 +67,7 @@ const Navbar = () => {
                     <NavLink className="mouse-over" to={"/"} ><li>Home</li></NavLink>
                     <NavLink className="mouse-over" to={"/features"} ><li >Features</li></NavLink>
                     <NavLink className="mouse-over" to={"/pricing"} ><li>Pricing</li></NavLink>
+                    <NavLink className="mouse-over" to={"/favourites"} ><li>Favourites</li></NavLink>
 
                 </ul>
 

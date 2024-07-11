@@ -73,3 +73,22 @@
 .coin-info ul li:last-child {
     font-weight: 300;
 }
+
+.add-to-favourites-btn {
+    margin-top: 20px;
+    padding: 12px 0px;
+}
+
+.added-to-favourites-btn {
+    background-color: blueviolet;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    pointer-events: none;
+}
+
+.added-to-favourites-tick-icon{
+    width: 30px;
+}

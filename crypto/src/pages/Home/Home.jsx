@@ -116,7 +116,7 @@ const Home = () => {
 
           {displayCoin.length < 1
             ?
-            <h1>Loading...</h1>
+            <h2 style={{textAlign:"center"}} >Loading...</h2  >
             :
             <div>
               {!isSearching && (

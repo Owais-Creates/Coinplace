@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import './Coin.css'
-import { useParams } from 'react-router-dom'
-import { useCoin } from '../../context/CoinContext'
-import LineChart from '../../components/LineChart/LineChart'
+import React, { useEffect, useState } from 'react';
+import './Coin.css';
+import { useParams } from 'react-router-dom';
+import { useCoin } from '../../context/CoinContext';
+import LineChart from '../../components/LineChart/LineChart';
+import Tick from "../../assets/tick.png"
+
 
 const Coin = () => {
 
@@ -10,7 +12,10 @@ const Coin = () => {
   const { currency } = useCoin();
   const [coinData, setCoinData] = useState();
   const [historicalData, setHistoricalData] = useState();
+  const [favourite, setFavourite] = useState(false)
 
+
+  // For single coin data
   const fetchCoinData = async () => {
     const options = {
       method: 'GET',
@@ -26,6 +31,7 @@ const Coin = () => {
       .catch(err => console.error(err));
   }
 
+  // For graph of the coin
   const fetchHistoricalData = async () => {
     const options = {
       method: 'GET',
@@ -46,12 +52,17 @@ const Coin = () => {
     fetchHistoricalData();
   }, [currency])
 
+  // Handle add to favourites
+  const handleAddFavourite = () => {
+    setFavourite(true);
+  }
+
 
   if (coinData, historicalData) {
 
     return (
       <div className="coin">
-        
+
         <div className="coin-name">
           <img src={coinData?.image?.large} alt="img" />
           <p><b>{coinData?.name} ({coinData?.symbol.toUpperCase()})</b></p>
@@ -85,6 +96,17 @@ const Coin = () => {
             <li>24 Hour low</li>
             <li>{currency.symbol} {coinData?.market_data?.low_24h[currency.name].toLocaleString()}</li>
           </ul>
+
+          <button
+            onClick={handleAddFavourite}
+            className={`${favourite ? "added-to-favourites-btn" : "add-to-favourites-btn"}`} >
+            {favourite ? (
+              <>Added to Favourites <img className='added-to-favourites-tick-icon' src={Tick} alt="" /> </>
+            ) : (
+              "Add to Favourite"
+            )}
+
+          </button>
 
         </div>
 
