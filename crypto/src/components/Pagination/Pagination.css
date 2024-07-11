@@ -42,14 +42,14 @@
 }
 
 .page-active {
-    background-color: black;
+    background-color: blueviolet;
     color: white;
 
 }
 
 .page-active:hover {
     cursor: not-allowed;
-    background-color: black;
+    background-color: blueviolet;
     color: white;
 }
 

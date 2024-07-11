@@ -10,10 +10,13 @@ import { motion } from 'framer-motion'
 
 const Navbar = () => {
 
+    const { singleFavouriteCoin } = useCoin();
+
     const { setCurrency } = useCoin();
     const [show, setShow] = useState(false);
 
     const currencyHandler = (event) => {
+
         switch (event.target.value) {
             case "usd": {
                 setCurrency({ name: "usd", symbol: "$" });
@@ -56,6 +59,8 @@ const Navbar = () => {
                             <Link onClick={mobileMenuHandler} className='mobile-home' to={"/"} ><li>Home</li></Link>
                             <Link onClick={mobileMenuHandler} to={"/features"} ><li >Features</li></Link>
                             <Link onClick={mobileMenuHandler} to={"/pricing"} ><li>Pricing</li></Link>
+                            <Link onClick={mobileMenuHandler} to={"/favourites"} ><li>Favourites </li></Link>
+
                         </div>
                     </motion.div>}
 
@@ -67,7 +72,7 @@ const Navbar = () => {
                     <NavLink className="mouse-over" to={"/"} ><li>Home</li></NavLink>
                     <NavLink className="mouse-over" to={"/features"} ><li >Features</li></NavLink>
                     <NavLink className="mouse-over" to={"/pricing"} ><li>Pricing</li></NavLink>
-                    <NavLink className="mouse-over" to={"/favourites"} ><li>Favourites</li></NavLink>
+                    <NavLink className="mouse-over" to={"/favourites"} ><li>Favourites <sup className='fav-sup' >{singleFavouriteCoin.length - 1}</sup> </li></NavLink>
 
                 </ul>
 

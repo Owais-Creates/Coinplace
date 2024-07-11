@@ -1,32 +1,36 @@
+/* Base styles for desktop */
+
 .favourites-container {
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
-}
-
-.favourites-container-heading h1 {
-    margin-top: 80px;
-    font-size: 50px;
-}
-
-.favourites-container-heading p {
-    color: blueviolet;
-    margin-left: -45px;
-    font-size: 20px;
+    padding: 0 20px; /* Adjust padding for better responsiveness */
+    margin-top: 50px;
 }
 
 .favourite-coins-display-container {
     border-radius: 50px;
     height: 500px;
     width: 800px;
-    margin: 40px 0px;
+    margin-top: 90px;
+    margin-bottom: 40px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     flex-wrap: wrap;
     padding: 20px 40px;
     overflow-y: auto;
+    position: relative;
+}
 
+.favourites-container-heading h1 {
+    font-size: 50px;
+}
+
+.favourites-container-heading p {
+    color: blueviolet;
+    font-size: 20px;
+    text-align: center; /* Center align for better readability */
 }
 
 .favourite-coin {
@@ -35,16 +39,92 @@
     align-items: center;
     gap: 15px;
     background-color: blueviolet;
+    width: 200px;
     height: fit-content;
-    padding: 20px ;
+    padding: 20px;
     border-radius: 20px;
     margin-bottom: 20px;
+    margin-top: 40px;
 }
 
-.favourite-coin img{
-    width: 100px;
+.favourite-coin img {
+    width: 60px;
 }
 
-.favourite-coin button{
+.favourite-coin button {
     background-color: #c81515;
+}
+
+.no-favourites {
+    margin-top: 130px;
+    font-size: 25px;
+    font-weight: 400;
+    text-transform: uppercase;
+    color: gray;
+}
+
+.clear-all-favourites {
+    margin-bottom: 30px;
+}
+
+/* Responsive styles for tablet (768px width) and below */
+
+@media screen and (max-width: 768px) {
+    .favourite-coins-display-container {
+        width: 100%;
+        height: auto;
+        max-height: 600px; /* Limit height for better mobile experience */
+        margin-top: 40px;
+        margin-bottom: 20px;
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .favourites-container-heading h1 {
+        font-size: 40px;
+        margin-top: 60px;
+    }
+
+    .favourites-container-heading p {
+        font-size: 18px;
+        left: 0; /* Center align removed */
+        text-align: center;
+    }
+
+    .favourite-coin {
+        width: calc(50% - 20px); /* Two columns layout */
+        margin-bottom: 10px;
+    }
+}
+
+/* Responsive styles for mobile (576px width) and below */
+
+@media screen and (max-width: 576px) {
+    .favourites-container-heading h1 {
+        font-size: 30px;
+        margin-top: 40px;
+    }
+
+    .favourites-container-heading p {
+        font-size: 16px;
+    }
+
+    .favourite-coins-display-container {
+        width: 100%;
+        height: auto;
+        max-height: 100%;
+        margin-top: 20px;
+        margin-bottom: 10px;
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    .favourite-coin {
+        width: 100%; /* Single column layout */
+    }
+
+    .no-favourites {
+        margin-top: 80px;
+        font-size: 20px;
+    }
 }

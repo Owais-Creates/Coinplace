@@ -32,7 +32,7 @@
 }
 
 .mouse-over:hover {
-    border-bottom: 3px solid #fff;
+    border-bottom: 1px solid #fff;
 }
 
 .nav-right {
@@ -81,6 +81,17 @@
     background-color: #09005c;
     color: #fff;
 }
+
+.fav-sup {
+    margin-left: 2px;
+    color: white;
+    background-color: blueviolet;
+    padding: 5px;
+    border-radius: 25%;
+    font-weight: 500;
+}
+
+
 
 @media(max-width:900px) {
     .navbar {
@@ -141,7 +152,7 @@
         margin-top: 20px;
     }
 
-    .sign-up-btn{
+    .sign-up-btn {
         padding: 6px 15px;
     }
 
