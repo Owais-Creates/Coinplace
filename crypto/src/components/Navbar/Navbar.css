@@ -99,12 +99,12 @@
     }
 
     .mobile-home {
-        margin-left: 90px;
+        margin-left: 80px;
 
     }
 
     .mobile-links li {
-        font-size: 25px;
+        font-size: 15px;
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -143,12 +143,12 @@
     .mobile-links {
         margin-bottom: 20px;
         display: flex;
-        gap: 30px;
+        gap: 15px;
     }
 
     .mobile-menu li {
         list-style: none;
-        font-size: 18px;
+        font-size: 14px;
         margin-top: 20px;
     }
 
