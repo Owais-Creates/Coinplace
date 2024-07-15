@@ -54,7 +54,7 @@ const CoinProvider = (props) => {
         const options = {
             method: 'GET',
             headers: {
-                'x-rapidapi-key': 'dd183efc8cmsha9f6268f4b2f2b4p1de2f2jsna903945693ec',
+                'x-rapidapi-key': '41ad9c0493mshb035df77e54f2f4p101a8cjsn42850dea8c45',
                 'x-rapidapi-host': 'cryptocurrency-news2.p.rapidapi.com'
             }
         };
@@ -62,7 +62,7 @@ const CoinProvider = (props) => {
         try {
             const response = await fetch(url, options);
             const result = await response.json();
-            setNewsData(result)
+            setNewsData(result);
         } catch (error) {
             console.error(error);
         }
