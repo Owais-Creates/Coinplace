@@ -60,6 +60,7 @@ const Navbar = () => {
                             <Link onClick={mobileMenuHandler} to={"/features"} ><li >Features</li></Link>
                             <Link onClick={mobileMenuHandler} to={"/pricing"} ><li>Pricing</li></Link>
                             <Link onClick={mobileMenuHandler} to={"/favourites"} ><li>Favourites </li></Link>
+                            <Link onClick={mobileMenuHandler} to={"/news"} ><li>News </li></Link>
 
                         </div>
                     </motion.div>}
@@ -72,7 +73,7 @@ const Navbar = () => {
                     <NavLink className="mouse-over" to={"/"} ><li>Home</li></NavLink>
                     <NavLink className="mouse-over" to={"/features"} ><li >Features</li></NavLink>
                     <NavLink className="mouse-over" to={"/pricing"} ><li>Pricing</li></NavLink>
-                    <NavLink className="mouse-over" style={{display:"flex"}} to={"/favourites"} ><li>Favourites <p className='fav-sup' >{singleFavouriteCoin.length - 1}</p></li></NavLink>
+                    <NavLink className="mouse-over" to={"/favourites"} ><li>Favourites <span className='fav-sup' >{singleFavouriteCoin.length}</span></li></NavLink>
                     <NavLink className="mouse-over" to={"/news"} ><li>News</li></NavLink>
 
                 </ul>

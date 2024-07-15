@@ -15,7 +15,8 @@ const Features = () => {
     "Pagination": "Allows you to navigate through the whole list of coins accordingly.",
     "Jump To Page": "Added a direct jump to page functionality with error handling for out of bounds inputs.",
     "Add To Favourites": "Implemented an add to favourite functionality for cryptocurrencies allowing users to easily mark their favorite coins and revisit them later..",
-    "Local Storage": " Used local storage functionality to ensure your favorite crypto coins persist even if you close your browser. Plus, also ensured that you can add each coin just once, enhancing your experience."
+    "Local Storage": " Used local storage functionality to ensure your favorite crypto coins persist even if you close your browser. Plus, also ensured that you can add each coin just once, enhancing your experience.",
+    "News Section": "Added a news section in cryptocurrency app, enhancing it with infinite scrolling functionality. This feature allows users to seamlessly load more news articles as they scroll down the page, providing a smooth and continuous browsing experience."
   };
 
   console.log(Object.keys(features));

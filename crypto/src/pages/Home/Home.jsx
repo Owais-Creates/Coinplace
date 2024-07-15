@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import Modal from '../../components/Modal/Modal'
 import Pagination from '../../components/Pagination/Pagination'
 import { motion } from 'framer-motion'
+import Loader from '../../components/Loader/Loader'
 
 const Home = () => {
   const { allCoin, currency, setIsModalActive, isModalActive } = useCoin();
@@ -116,7 +117,9 @@ const Home = () => {
 
           {displayCoin.length < 1
             ?
-            <h2 style={{textAlign:"center"}} >Loading...</h2  >
+            <div className='loader-div' >
+              <Loader />
+            </div>
             :
             <div>
               {!isSearching && (
