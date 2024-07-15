@@ -10,8 +10,6 @@ import { motion } from 'framer-motion'
 
 const Navbar = () => {
 
-    const { singleFavouriteCoin } = useCoin();
-
     const { setCurrency } = useCoin();
     const [show, setShow] = useState(false);
 
