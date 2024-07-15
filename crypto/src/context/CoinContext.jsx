@@ -54,7 +54,7 @@ const CoinProvider = (props) => {
         const options = {
             method: 'GET',
             headers: {
-                'x-rapidapi-key': '702d3da325mshdd4c7746dc3a00fp1ad591jsn4b6cec682640',
+                'x-rapidapi-key': 'dd183efc8cmsha9f6268f4b2f2b4p1de2f2jsna903945693ec',
                 'x-rapidapi-host': 'cryptocurrency-news2.p.rapidapi.com'
             }
         };
@@ -62,7 +62,7 @@ const CoinProvider = (props) => {
         try {
             const response = await fetch(url, options);
             const result = await response.json();
-            console.log(result);
+            setNewsData(result)
         } catch (error) {
             console.error(error);
         }
@@ -70,10 +70,9 @@ const CoinProvider = (props) => {
 
     useEffect(() => {
         fetchCryptoNews();
-        console.log(newsData);
-    }, [newsData])
+    }, [])
 
-    
+
     const contextValue = {
         allCoin,
         setAllCoin,
@@ -83,7 +82,8 @@ const CoinProvider = (props) => {
         setIsModalActive,
         handleModal,
         singleFavouriteCoin,
-        setSingleFavouriteCoin
+        setSingleFavouriteCoin,
+        newsData
     }
 
     return (

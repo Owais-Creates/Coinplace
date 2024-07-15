@@ -72,7 +72,8 @@ const Navbar = () => {
                     <NavLink className="mouse-over" to={"/"} ><li>Home</li></NavLink>
                     <NavLink className="mouse-over" to={"/features"} ><li >Features</li></NavLink>
                     <NavLink className="mouse-over" to={"/pricing"} ><li>Pricing</li></NavLink>
-                    <NavLink className="mouse-over" to={"/favourites"} ><li>Favourites <sup className='fav-sup' >{singleFavouriteCoin.length - 1}</sup> </li></NavLink>
+                    <NavLink className="mouse-over" style={{display:"flex"}} to={"/favourites"} ><li>Favourites <p className='fav-sup' >{singleFavouriteCoin.length - 1}</p></li></NavLink>
+                    <NavLink className="mouse-over" to={"/news"} ><li>News</li></NavLink>
 
                 </ul>
 

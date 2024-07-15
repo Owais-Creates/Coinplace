@@ -9,6 +9,7 @@ import Features from './components/Features/Features'
 import SignUp from './pages/SignUp/SignUp'
 import { useCoin } from './context/CoinContext'
 import Favourites from './components/Favourites/Favourites'
+import News from './components/News/News'
 
 const App = () => {
 
@@ -24,6 +25,7 @@ const App = () => {
         <Route path='/features' element={<Features />} />
         <Route path='/signup' element={<SignUp />} />
         <Route path='/favourites' element={<Favourites />} />
+        <Route path='/news' element={<News />} />
       </Routes>
       {!isModalActive && <Footer />}
     </div>
