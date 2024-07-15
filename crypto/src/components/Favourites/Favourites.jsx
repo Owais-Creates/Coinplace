@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import "./Favourites.css";
 import { useCoin } from '../../context/CoinContext';
 import { motion } from 'framer-motion';
 
 const Favourites = () => {
+
     const { singleFavouriteCoin, setSingleFavouriteCoin } = useCoin();
 
     const handleRemove = (name) => {
@@ -13,7 +14,10 @@ const Favourites = () => {
 
     const clearLocalStorage = () => {
         localStorage.clear();
-        setSingleFavouriteCoin([]); // Set to an empty array
+        setSingleFavouriteCoin([{
+            name: "",
+            img: ""
+        }]);
     }
 
     return (
@@ -24,11 +28,11 @@ const Favourites = () => {
             </motion.div>
 
             <div className='favourite-coins-display-container'>
-                {singleFavouriteCoin.length === 0 ? (
+                {singleFavouriteCoin.length <= 1 ? (
                     <h2 className='no-favourites'>No Favourites yet...</h2>
                 ) : (
                     singleFavouriteCoin.map((item, index) => (
-                        <div key={index} className='favourite-coin'>
+                        index !== 0 && <div key={index} className='favourite-coin'>
                             <h2>{item.name}</h2>
                             <img src={item.img} alt="" />
                             <button onClick={() => handleRemove(item.name)}>Remove</button>

@@ -8,7 +8,7 @@ export const useCoin = () => {
 
 const CoinProvider = (props) => {
     const [allCoin, setAllCoin] = useState([]);
-    const [newsData, setNewsData] = useState([]);
+    const [newsData, setNewsData] = useState([])
     const [isModalActive, setIsModalActive] = useState(false);
     const [currency, setCurrency] = useState({
         name: "usd",
@@ -48,7 +48,7 @@ const CoinProvider = (props) => {
         fetchAllCoin();
     }, [currency]);
 
-    // Fetching crypto news from API
+    //Fetching crypto news from API
     const fetchCryptoNews = async () => {
         const url = 'https://cryptocurrency-news2.p.rapidapi.com/v1/coindesk';
         const options = {
@@ -70,7 +70,8 @@ const CoinProvider = (props) => {
 
     useEffect(() => {
         fetchCryptoNews();
-    }, []);
+    }, [])
+
 
     const contextValue = {
         allCoin,
