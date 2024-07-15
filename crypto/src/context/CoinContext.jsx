@@ -8,6 +8,7 @@ export const useCoin = () => {
 
 const CoinProvider = (props) => {
     const [allCoin, setAllCoin] = useState([]);
+    const [newsData, setNewsData] = useState([])
     const [isModalActive, setIsModalActive] = useState(false);
     const [currency, setCurrency] = useState({
         name: "usd",
@@ -28,6 +29,7 @@ const CoinProvider = (props) => {
         setIsModalActive(false);
     }
 
+    // Fetching All Coin data from API
     const fetchAllCoin = async () => {
         const options = {
             method: 'GET',
@@ -46,6 +48,32 @@ const CoinProvider = (props) => {
         fetchAllCoin();
     }, [currency]);
 
+    //Fetching Crypto news from API
+    const fetchCryptoNews = async () => {
+        const url = 'https://cryptocurrency-news2.p.rapidapi.com/v1/coindesk';
+        const options = {
+            method: 'GET',
+            headers: {
+                'x-rapidapi-key': '702d3da325mshdd4c7746dc3a00fp1ad591jsn4b6cec682640',
+                'x-rapidapi-host': 'cryptocurrency-news2.p.rapidapi.com'
+            }
+        };
+
+        try {
+            const response = await fetch(url, options);
+            const result = await response.json();
+            console.log(result);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    useEffect(() => {
+        fetchCryptoNews();
+        console.log(newsData);
+    }, [newsData])
+
+    
     const contextValue = {
         allCoin,
         setAllCoin,
