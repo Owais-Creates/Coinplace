@@ -95,11 +95,6 @@
         padding: 20px 8%;
     }
 
-    .mobile-home {
-        margin-left: 80px;
-
-    }
-
     .mobile-links li {
         font-size: 15px;
         font-weight: 700;
@@ -128,25 +123,29 @@
     .mobile-menu {
         display: block;
         color: white;
-        width: 100%;
+        width: 80%;
         position: absolute;
-        top: 8%;
+        top: 12%;
+        left: 10%;
         display: flex;
         justify-content: center;
-        margin-left: -65px;
-
     }
 
     .mobile-links {
-        margin-bottom: 20px;
         display: flex;
-        gap: 15px;
+        flex-direction: column;
+        background-color: white;
+        z-index: 9999;
+        width: 100%;
+        padding-left: 30px;
+        padding-bottom: 15px;
+        border-radius: 10px;
     }
 
     .mobile-menu li {
         list-style: none;
-        font-size: 14px;
-        margin-top: 20px;
+        font-size: 18px;
+
     }
 
     .sign-up-btn {

@@ -58,6 +58,7 @@ const Navbar = () => {
                             <Link onClick={mobileMenuHandler} to={"/features"} ><li >Features</li></Link>
                             <Link onClick={mobileMenuHandler} to={"/pricing"} ><li>Pricing</li></Link>
                             <Link onClick={mobileMenuHandler} to={"/favourites"} ><li>Favourites </li></Link>
+                            <Link onClick={mobileMenuHandler} to={"/news"} ><li>News </li></Link>
                         </div>
                     </motion.div>}
 
