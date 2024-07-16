@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import './Price.css';
 import man from "../../assets/man.png";
-import { RiArrowUpSLine } from "react-icons/ri";
 import { motion } from 'framer-motion';
+import FAQS from '../FAQs/FAQS';
 
 const Price = () => {
 
@@ -25,37 +25,6 @@ const Price = () => {
     }
   ];
 
-  const cryptoFAQs = [
-    {
-      question: "What is cryptocurrency?",
-      answer: "Digital or virtual currency using cryptography for security, often decentralized and based on blockchain technology."
-    },
-    {
-      question: "How does blockchain work?",
-      answer: "A distributed ledger recording transactions across a network, ensuring transparency, security, and immutability."
-    },
-    {
-      question: "Most popular cryptocurrencies?",
-      answer: "Bitcoin (BTC), Ethereum (ETH), Binance Coin (BNB), Ripple (XRP), and Litecoin (LTC)."
-    },
-    {
-      question: "How can I buy cryptocurrency?",
-      answer: "Buy on exchanges like Coinbase or Binance; store in digital wallets, either software-based or hardware devices."
-    },
-    {
-      question: "What are the risks involved ?",
-      answer: "High volatility, regulatory uncertainty, cybersecurity threats, and potential for fraud or hacking."
-    }
-  ];
-
-  const [isOpen, setIsOpen] = useState(Array(cryptoFAQs.length).fill(false));
-
-  const handleFaqsToggle = (idx) => {
-    const updatedIsOpen = [...isOpen];
-    updatedIsOpen[idx] = !updatedIsOpen[idx]
-    setIsOpen(updatedIsOpen);
-  }
-
   return (
     <>
       <div className='main' >
@@ -63,8 +32,8 @@ const Price = () => {
         <div className="top">
 
           <motion.div
-          initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}
-          className="img">
+            initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1 }}
+            className="img">
             <img src={man} alt="image" />
           </motion.div>
 
@@ -98,16 +67,7 @@ const Price = () => {
 
         <h2 className='faq-h2' >Frequently Asked Questions?</h2>
 
-        <div className="faqs">
-
-          {cryptoFAQs.map((item, index) => (
-            <div key={index} className="faq">
-              <h3 onClick={() => handleFaqsToggle(index)} >{item.question} <span className={isOpen[index] ? `rotate` : ""} ><RiArrowUpSLine /></span></h3>
-              <p>{isOpen[index] && item.answer}</p>
-            </div>
-          ))}
-
-        </div>
+        <FAQS />
 
       </div>
 
