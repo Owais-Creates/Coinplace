@@ -54,7 +54,7 @@ const CoinProvider = (props) => {
         const options = {
             method: 'GET',
             headers: {
-                'x-rapidapi-key': '41ad9c0493mshb035df77e54f2f4p101a8cjsn42850dea8c45',
+                'x-rapidapi-key': '3055018ac5msh771f2897277f5eep1fce28jsn2ee4ce01a06a',
                 'x-rapidapi-host': 'cryptocurrency-news2.p.rapidapi.com'
             }
         };
