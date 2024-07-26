@@ -10,6 +10,7 @@ import SignUp from './pages/SignUp/SignUp'
 import { useCoin } from './context/CoinContext'
 import Favourites from './components/Favourites/Favourites'
 import News from './components/News/News'
+import Preloader from './components/Preloader/Preloader'
 
 const App = () => {
 
@@ -18,6 +19,7 @@ const App = () => {
   return (
     <div className='app' >
       <Navbar />
+      <Preloader />
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/coin/:coinId' element={<Coin />} />
