@@ -38,6 +38,9 @@ const News = () => {
         }
     }, [lastIndex]);
 
+    console.log(newsData.length);
+    
+
     return (
         <>
             <div className="main-parent">
@@ -46,19 +49,24 @@ const News = () => {
                 </motion.h1>
                 <div className='single-news-container'>
                     {
-                        newsData.data?.slice(0, lastIndex).map((item, index) => (
-                            <div key={index} className='single-news'>
-                                <div className='news-image-container'>
-                                    <img className='news-img' src={item.thumbnail} alt="" />
+                        newsData.length === undefined
+                            ?
+                            <h1 >Problem in fetching data</h1>
+                            
+                            :
+                            newsData.data?.slice(0, lastIndex).map((item, index) => (
+                                <div key={index} className='single-news'>
+                                    <div className='news-image-container'>
+                                        <img className='news-img' src={item.thumbnail} alt="" />
+                                    </div>
+                                    <div className='news-details-container'>
+                                        <p className='news-title'>{item.title}</p>
+                                        <p className='description'>{item.description}</p>
+                                        <p className='created-at'>Created at - <span>{item.createdAt}</span></p>
+                                        <a target='_blank' href={item.url} rel="noopener noreferrer">Know More</a>
+                                    </div>
                                 </div>
-                                <div className='news-details-container'>
-                                    <p className='news-title'>{item.title}</p>
-                                    <p className='description'>{item.description}</p>
-                                    <p className='created-at'>Created at - <span>{item.createdAt}</span></p>
-                                    <a target='_blank' href={item.url} rel="noopener noreferrer">Know More</a>
-                                </div>
-                            </div>
-                        ))
+                            ))
                     }
 
 
